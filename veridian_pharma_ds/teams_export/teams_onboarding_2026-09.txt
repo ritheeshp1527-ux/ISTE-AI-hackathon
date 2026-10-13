@@ -1,0 +1,11 @@
+[2026-09-05 10:45] Sana Iqbal: Hello hiring managers! Hope your teams are having a great quarter.
+[2026-09-05 10:52] Arjun Nair: Hi Sana, we have two QC analysts joining next Monday.
+[2026-09-05 10:58] Sana Iqbal: Wonderful! Welcome packs and orientation folders are ready for them.
+[2026-09-05 11:05] Meera Rao: Good morning Sana. We also have a QA documentation associate joining mid-month.
+[2026-09-05 11:12] Sana Iqbal: Sana Iqbal reminds managers to raise IT access requests before day 1, and says the checklist lives in POL-HR-003.
+[2026-09-05 11:16] Arjun Nair: Will submit their IT portal requests today itself so laptops and accounts are configured.
+[2026-09-05 11:22] Meera Rao: Great reminder. I'll ask Vikram to submit the ticket for our incoming associate.
+[2026-09-05 11:28] Kiran Patel: Thanks for the advance tickets, team. It really helps IT provision badges and VPN without bottlenecks.
+[2026-09-05 11:35] Sana Iqbal: Perfect. Don't forget that mandatory GMP training enrollment also triggers on Day 1.
+[2026-09-05 11:40] Arjun Nair: Understood, we scheduled their training modules for Monday afternoon.
+[2026-09-05 11:45] Sana Iqbal: Always here to help facilitate smooth transitions!

@@ -1,0 +1,16 @@
+From: arjun.nair@veridianpharma.com
+To: lab-team@veridianpharma.com
+Date: 2026-10-08 09:30
+Subject: Urgent: Upcoming Calibration Schedule for Balance B-204
+
+Dear Team,
+
+Please review the attached calibration schedule for the analytical testing laboratory.
+Balance B-204 calibration due 15 Nov 2026.
+Please ensure no long-term stability testing is scheduled on that bench during the vendor service window.
+Let me know if there are any conflicting runs.
+
+Best regards,
+Arjun Nair
+Lab Manager
+Veridian Pharma Ltd.

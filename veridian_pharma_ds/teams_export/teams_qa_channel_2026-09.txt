@@ -1,0 +1,18 @@
+[2026-09-02 09:30] Vikram Sen: Good morning everyone, hope everyone had a restful weekend.
+[2026-09-02 09:34] Sunita Rao: Morning Vikram. Just pulling up the review schedule for granulation Line 2.
+[2026-09-02 09:38] Vikram Sen: Line 2 is looking good, we completed the in-process verification early today.
+[2026-09-02 09:42] Anita Desai: Morning team. Quick question regarding deviation documentation for packaging line 3.
+[2026-09-02 09:45] Sunita Rao: Is that regarding the sensor misread from yesterday afternoon?
+[2026-09-02 09:50] Anita Desai: Yes, exactly. We quarantined the cartons but wanted to verify the reporting window under the updated SOP.
+[2026-09-02 09:55] Vikram Sen: Has the new version of SOP-QA-014 gone live yet?
+[2026-09-02 10:02] Meera Rao: Good morning all. Yes, please note that SOP-QA-014 v2 has been approved and published today.
+[2026-09-02 10:08] Anita Desai: Thanks Meera. What are the key adjustments we should brief the line supervisors about?
+[2026-09-02 10:14] Meera Rao: Meera Rao announces the deviation reporting window changed to 48 hours effective 1 Sep 2026, and the team asks about phone escalation.
+[2026-09-02 10:16] Vikram Sen: Does the 48 hours apply to critical deviations as well?
+[2026-09-02 10:20] Meera Rao: Yes, the QMS window is 48 hours, but critical deviations require an immediate phone call directly to me before completing the form.
+[2026-09-02 10:23] Sunita Rao: Understood Meera. That provides clarity so we don't have delays in containment.
+[2026-09-02 10:27] Anita Desai: Excellent. I will update the packaging shift briefing sheets right away.
+[2026-09-02 10:35] Vikram Sen: Perfect. Let's make sure the shift handover log reflects this too.
+[2026-09-02 10:42] Sunita Rao: I'll also double check that the floor binders have the controlled copy notification.
+[2026-09-02 10:48] Meera Rao: Thank you everyone. Let's keep quality standards strong.
+[2026-09-02 10:55] Vikram Sen: Will do, talk to everyone at the 11:30 daily huddle.

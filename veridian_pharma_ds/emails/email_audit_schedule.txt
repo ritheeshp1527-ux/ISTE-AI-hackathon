@@ -1,0 +1,16 @@
+From: meera.rao@veridianpharma.com
+To: qa-auditors@veridianpharma.com
+Date: 2026-10-05 14:15
+Subject: Schedule Confirmation: Q4 Quality Audit Follow-Up
+
+Dear Colleagues,
+
+Following our Q3 audit discussions and the open observations currently tracked in QA-MEMO-2026-04, please note the audit dates:
+Follow-up audit scheduled 2-4 Dec 2026.
+We will specifically examine the closure evidence for the analytical balance records and packaging documentation.
+Please ensure all auditor binders are pre-populated.
+
+Regards,
+Meera Rao
+QA Head
+Veridian Pharma Ltd.
