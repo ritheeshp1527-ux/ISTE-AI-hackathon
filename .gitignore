@@ -24,6 +24,8 @@ __pycache__/
 .coverage.*
 htmlcov/
 .hypothesis/
+logs/
+*.log
 
 # Local Chroma vector database storage
 chroma_db/
