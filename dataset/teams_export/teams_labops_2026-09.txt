@@ -1,0 +1,15 @@
+[2026-09-18 13:45] Rajesh G: Good afternoon team. Did the courier deliver the replacement HPLC columns for Lab 3?
+[2026-09-18 13:52] Arjun Nair: Afternoon Rajesh. Yes, the columns arrived around noon and are currently in receiving inspection.
+[2026-09-18 14:00] Divya K: Great, we need them for the upcoming dissolution sequence tomorrow morning.
+[2026-09-18 14:05] Rajesh G: By the way, the solvent stocks in Lab 2 are replenished.
+[2026-09-18 14:15] Divya K: Also checking regarding the waste storage in Lab 2, we are accumulating several carboys under the fume hood.
+[2026-09-18 14:22] Rajesh G: We should make sure the secondary trays aren't overflowing.
+[2026-09-18 14:30] Arjun Nair: Arjun Nair says waste collection moves to Friday starting 5 Oct 2026.
+[2026-09-18 14:33] Rajesh G: Got it, Friday works much better with our end-of-week cleaning rhythm anyway.
+[2026-09-18 14:37] Divya K: Should we make sure the containers are staged by Thursday evening then?
+[2026-09-18 14:42] Arjun Nair: Yes, stage them in secondary containment by Thursday close of business.
+[2026-09-18 14:48] Rajesh G: Great, I'll notify the evening shift technicians so they know about the pickup adjustment.
+[2026-09-18 14:55] Divya K: Do we need extra carboys for the methanol effluents?
+[2026-09-18 15:02] Arjun Nair: There are spares in the central store cupboard.
+[2026-09-18 15:10] Rajesh G: Perfect, I'll grab two before the shift ends.
+[2026-09-18 15:15] Arjun Nair: Good work team. Keep safety first.

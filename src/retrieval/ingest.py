@@ -157,16 +157,18 @@ def extract_document(
     Reports empty extraction clearly and avoids silently returning empty content.
     """
     path = Path(file_path)
-    source_type = metadata.source_type.lower().lstrip(".")
+    ext = path.suffix.lower().lstrip(".")
+    if not ext:
+        ext = metadata.source_type.lower().lstrip(".")
 
-    if source_type == "pdf":
+    if ext == "pdf":
         pages = extract_pdf(path, metadata.doc_id)
-    elif source_type == "docx":
+    elif ext == "docx":
         pages = extract_docx(path, metadata.doc_id)
-    elif source_type in ("txt", "md"):
+    elif ext in ("txt", "md", "teams", "email", "teams_export", "emails"):
         pages = extract_txt(path, metadata.doc_id)
     else:
-        raise ValueError(f"Unsupported source type '{source_type}' for {path}")
+        raise ValueError(f"Unsupported source type or extension '{ext}' for {path}")
 
     total_chars = sum(len(p.text.strip()) for p in pages)
     if total_chars == 0:

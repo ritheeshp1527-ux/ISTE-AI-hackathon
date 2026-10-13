@@ -97,7 +97,6 @@ def vector_retrieve(
     if not clean_query:
         return []
 
-    # Security check: if groups is empty, reject query to prevent leakage
     valid_groups = [str(g).strip() for g in groups if str(g).strip()]
     if not valid_groups:
         logger.warning(
@@ -105,6 +104,11 @@ def vector_retrieve(
             clean_query,
         )
         return []
+
+    # Universal access groups accessible to any authenticated user
+    for universal_group in ("all", "public", "general"):
+        if universal_group not in valid_groups:
+            valid_groups.append(universal_group)
 
     emb_function = embedding_fn if embedding_fn is not None else get_default_embedding_function()
     collection = get_or_create_collection(
@@ -219,6 +223,11 @@ def bm25_retrieve(
             clean_query,
         )
         return []
+
+    # Universal access groups accessible to any authenticated user
+    for universal_group in ("all", "public", "general"):
+        if universal_group not in valid_groups:
+            valid_groups.append(universal_group)
 
     query_tokens = tokenize_for_bm25(clean_query)
     if not query_tokens:

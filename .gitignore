@@ -46,3 +46,7 @@ dist/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Subproject folders
+dev2/
+

@@ -20,9 +20,28 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 # Constants & Enums
 # ============================================================================
 
-SUPPORTED_SOURCE_TYPES: set[str] = {"pdf", "docx", "txt", "md"}
+SUPPORTED_SOURCE_TYPES: set[str] = {
+    "pdf",
+    "docx",
+    "txt",
+    "md",
+    "sharepoint",
+    "teams",
+    "email",
+    "library",
+    "teams_export",
+    "emails",
+    "pdf_library",
+}
 
-VALID_STATUSES: set[str] = {"active", "archived", "deprecated", "draft"}
+VALID_STATUSES: set[str] = {
+    "active",
+    "archived",
+    "deprecated",
+    "draft",
+    "effective",
+    "superseded",
+}
 
 MANIFEST_REQUIRED_FIELDS: tuple[str, ...] = (
     "doc_id",
@@ -80,13 +99,24 @@ class DocumentMetadata(BaseModel):
 
     doc_id: str = Field(description="Unique identifier for the document")
     title: str = Field(description="Document title")
-    source_path: str = Field(description="Relative or absolute path to document file")
-    source_type: str = Field(description="File extension/type (pdf, docx, txt, md)")
+    source_path: str = Field(default="", description="Relative or absolute path to document file")
+    file_path: str = Field(default="", description="Alias for source_path")
+    source_type: str = Field(description="File extension/type (pdf, docx, txt, md, sharepoint, etc.)")
     version: str = Field(default="1.0", description="Document version string")
-    status: str = Field(default="active", description="Lifecycle status (active, archived, deprecated, draft)")
+    status: str = Field(default="active", description="Lifecycle status (active, archived, deprecated, draft, effective, superseded)")
     access_group: str = Field(default="public", description="Permission group required for access")
     modified_at: str = Field(description="Last modified timestamp or ISO date")
     supersedes: str | None = Field(default=None, description="Optional doc_id that this version replaces")
+
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_manifest_paths(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            if "file_path" in data and ("source_path" not in data or not data.get("source_path")):
+                data["source_path"] = data["file_path"]
+            elif "source_path" in data and ("file_path" not in data or not data.get("file_path")):
+                data["file_path"] = data["source_path"]
+        return data
 
     @field_validator("doc_id", "title", "source_path", "modified_at", mode="before")
     @classmethod
@@ -465,6 +495,12 @@ def validate_manifest_record(record: dict[str, Any] | DocumentMetadata) -> Docum
     if not isinstance(record, dict):
         raise ManifestValidationError(f"Manifest record must be a dict, got {type(record).__name__}.")
 
+    # Normalize file_path <-> source_path before checking required fields
+    if "file_path" in record and ("source_path" not in record or not record.get("source_path")):
+        record["source_path"] = record["file_path"]
+    elif "source_path" in record and ("file_path" not in record or not record.get("file_path")):
+        record["file_path"] = record["source_path"]
+
     # Check for required fields present in record
     for field_name in MANIFEST_REQUIRED_FIELDS:
         if field_name not in record or record[field_name] is None or not str(record[field_name]).strip():
@@ -481,18 +517,20 @@ def validate_manifest_record(record: dict[str, Any] | DocumentMetadata) -> Docum
 def validate_manifest_records(
     records: list[dict[str, Any]] | list[DocumentMetadata],
 ) -> list[DocumentMetadata]:
-    """Validate a list of manifest records, enforcing unique doc_ids and field schemas."""
+    """Validate a list of manifest records, enforcing unique (doc_id, version) and field schemas."""
     validated: list[DocumentMetadata] = []
-    seen_doc_ids: set[str] = set()
+    seen_keys: set[tuple[str, str]] = set()
 
     for idx, rec in enumerate(records, start=1):
         validated_rec = validate_manifest_record(rec)
         doc_id = validated_rec.doc_id
-        if doc_id in seen_doc_ids:
+        version = validated_rec.version
+        key = (doc_id, version)
+        if key in seen_keys:
             raise ManifestValidationError(
                 f"Duplicate doc_id '{doc_id}' found in manifest at entry #{idx}."
             )
-        seen_doc_ids.add(doc_id)
+        seen_keys.add(key)
         validated.append(validated_rec)
 
     return validated
@@ -509,8 +547,11 @@ def validate_manifest_csv(csv_path: str | Path) -> list[DocumentMetadata]:
         if reader.fieldnames is None:
             raise ManifestValidationError(f"Manifest CSV is empty: {csv_path}")
 
-        # Check required columns present in header
-        missing_columns = [col for col in MANIFEST_REQUIRED_FIELDS if col not in reader.fieldnames]
+        # Check required columns present in header (accepting either source_path or file_path)
+        effective_header = set(reader.fieldnames)
+        if "file_path" in effective_header:
+            effective_header.add("source_path")
+        missing_columns = [col for col in MANIFEST_REQUIRED_FIELDS if col not in effective_header]
         if missing_columns:
             raise ManifestValidationError(
                 f"Manifest CSV missing required header columns: {missing_columns}"
