@@ -1,36 +1,8 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# Virtual Environments
+# Virtual environments
 .venv/
 venv/
-ENV/
 env/
+ENV/
 env.bak/
 venv.bak/
 
@@ -39,31 +11,38 @@ venv.bak/
 .env.local
 .env.*.local
 
-# Testing & Coverage
+# Python caches & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Test artifacts & coverage
 .pytest_cache/
 .coverage
 .coverage.*
 htmlcov/
-.tox/
-.nox/
-coverage.xml
-*.cover
-*.py,cover
+.hypothesis/
 
-# Logs and runtime artifacts
-logs/
-*.log
+# Local Chroma vector database storage
+chroma_db/
+chroma/
+*.sqlite3
+*.chroma
 
-# IDE and Editor configurations
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE & OS files
 .idea/
-.vscode/*
-!.vscode/settings.json
+.vscode/
 *.swp
 *.swo
 *~
-
-# OS specific files
 .DS_Store
 Thumbs.db
-ehthumbs.db
-[Dd]esktop.ini
+Desktop.ini
